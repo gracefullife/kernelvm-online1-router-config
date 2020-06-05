@@ -1,0 +1,5 @@
+set interface ethernet eth0 address 192.168.2.2/24
+set interface ethernet eth0 address 2001:db8:dead:cafe::2/64
+
+set protocols static route 192.168.1.0/24 next-hop 192.168.2.1
+set protocols static route6 2001:db8:dead:beaf::/64 next-hop 2001:db8:dead:cafe::1

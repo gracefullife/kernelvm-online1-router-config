@@ -1,0 +1,8 @@
+set interface ethernet eth0 address 192.168.2.1/24
+set interface ethernet eth0 address 2001:db8:dead:beaf::1/64
+
+set interface tunnel tun0 local-ip 2001:db8:dead:beaf::1
+set interface tunnel tun0 remote-ip 2001:db8:dead:beaf::2
+set interface tunnel tun0 encapsulation ipip6
+
+set protocols static interface-route 0.0.0.0/0 next-hop-interface tun0

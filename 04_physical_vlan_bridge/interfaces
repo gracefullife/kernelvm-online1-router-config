@@ -1,0 +1,35 @@
+allow-hotplug enp1s0
+iface enp1s0 inet manual
+iface enp1s0 inet6 auto
+      accept_ra 0
+      dhcp 0
+
+allow-hotplug enp3s0
+iface enp3s0 inet manual
+iface enp3s0 inet6 auto
+      accept_ra 0
+      dhcp 0
+
+auto enp1s0.100
+iface enp1s0.100 inet manual
+      vlan-raw-device enp1s0
+iface enp1s0.100 inet6 auto
+      acccept_ra 0
+      dhcp 0
+auto enp3s0.200
+iface enp3s0.200 inet manual
+      vlan-raw-device enp3s0
+iface enp3s0.200 inet6 auto
+      acccept_ra 0
+      dhcp 0
+
+auto br0
+iface br0 inet static
+      bridge_ports enp1s0.100 enp3s0.200
+      address 192.168.1.1
+      netmask 255.255.255.0
+iface br0 inet6 static
+      address 2001:db8:dead:beaf::1
+      netmask 64
+      accept_ra 0
+      dhcp 0
